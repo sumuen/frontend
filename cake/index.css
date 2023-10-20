@@ -60,7 +60,15 @@ ul.grid li {
   backface-visibility: hidden;
   perspective: 1000px;
 }
-
+.newscared:hover {
+  animation: shake 0.82s ease-in-out both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+.fade:hover {
+  animation: fadeInOut 3s ;
+}
 @keyframes shake {
   10%,
   90% {
@@ -84,6 +92,11 @@ ul.grid li {
   }
 }
 
+@keyframes fadeInOut {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 0; }
+}
 .excited:hover {
     animation-duration: 2s;
     animation-iteration-count: infinite;
