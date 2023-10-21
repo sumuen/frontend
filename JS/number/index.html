@@ -9,11 +9,16 @@
 
 <body>
     <script>
+        function financial(x) {
+            return Number.parseFloat(x).toFixed(2);
+        }
+
         console.log(1 % 3 + 3 * 3);
         const PI = 3.14;
         let radius = prompt("the radius of circle");
         console.log(typeof radius);
-        document.write(`<h1>the area of the circle is  ${PI * radius * radius}</h1>`)
+        let area = financial(PI * radius * radius);
+        document.write(`<h1>the area of the circle is  ${area}</h1>`)
     </script>
 </body>
 
