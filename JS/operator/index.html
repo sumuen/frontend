@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let num = 1
+        for (let i = 0; i < 10; i++) {
+            num += 1
+        }
+        console.log(num) // 11
+        let i = 1
+        console.log(i++ + ++i + i++ + i + i-- + i + --i + i);
+        console.log(2 == "2");
+        console.log(2 === "2");
+        console.log(2 !== 2);
+        console.log(2 !== '2');
+        console.log(2 < 3 && 2 > 1);
+        let tarnum;
+        do {
+            tarnum = prompt("please input a number which can be devided by 3 and 7 ")
+            tarnum = Number(tarnum)
+            if (tarnum % 3 == 0 && tarnum % 7 == 0) {
+                alert("bingo")
+                break
+            } else {
+                alert("try again")
+            }
+        } while (true);
+        for (; ;) {
+            tarnum = prompt("please input a number which can be devided by 3 and 7 ")
+            tarnum = Number(tarnum)
+            if (tarnum % 3 == 0 && tarnum % 7 == 0) {
+                alert("bingo")
+                break
+            } else {
+                alert("try again")
+            }
+        }
+
+    </script>
+</body>
+
+</html>
