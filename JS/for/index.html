@@ -9,6 +9,31 @@
 
 <body>
     <script>
+        const str = `caonima`
+        console.log(str[2])
+        //delete `o` in str
+        console.log(str.slice(0, 2) + str.slice(3))
+        //replace `o` with `0`
+        console.log(str.slice(0, 2) + `0` + str.slice(3))
+        function replaceFirstO() {
+            let output = true;
+            while (output) {
+                let str = prompt('Please input a word');
+                if (str === 'stop') break;
+
+                for (let i = 0; i < str.length; i++) {
+                    console.log(str[i]);
+                    if (str[i] === 'o') {
+                        str = str.slice(0, i) + '0' + str.slice(i + 1);
+                        console.log(str);
+                        output = false;
+                        // break;
+                    }
+                }
+            }
+        }
+
+        replaceFirstO();
 
     </script>
 </body>
