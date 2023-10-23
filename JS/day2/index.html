@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let i = 0;
+        let a = 0;
+        let b = 0;
+        function title1() {
+            for (i; i < 21; i++) {
+                console.log(i);
+            }
+
+            while (a < 21) {
+                console.log(a);
+                a++;
+            }
+
+            do {
+                console.log(b);
+                b++;
+            } while (b < 21);
+
+            // 重置变量的值
+            i = 0;
+            a = 0;
+            b = 0;
+        }
+        function title2() {
+            let sum = 0;
+            for (i; i < 1001; i++) {
+                sum += i
+            }
+            console.log(sum)
+        }
+        function title3() {
+            let num = 100
+            for (num; num <= 200; num++) {
+                if (num % 6 === 0) {
+                    console.log(num)
+                }
+            }
+        }
+        function title4() {
+            let num1 = prompt(`please input first number`)
+            let num2 = prompt(`please input seconde number`)
+            console.log(num1 > num2 ? num1 : num2)
+        }
+        function title8() {
+            while (true) {
+                let account = prompt(`account`)
+                let pw = prompt(`password`)
+                if (account === `admin` && pw === "password") break;
+
+            }
+        }
+        title8();
+    </script>
+</body>
+
+</html>

@@ -22,27 +22,37 @@
         console.log(2 !== '2');
         console.log(2 < 3 && 2 > 1);
         let tarnum;
-        do {
-            tarnum = prompt("please input a number which can be devided by 3 and 7 ")
-            tarnum = Number(tarnum)
-            if (tarnum % 3 == 0 && tarnum % 7 == 0) {
-                alert("bingo")
-                break
-            } else {
-                alert("try again")
-            }
-        } while (true);
-        for (; ;) {
-            tarnum = prompt("please input a number which can be devided by 3 and 7 ")
-            tarnum = Number(tarnum)
-            if (tarnum % 3 == 0 && tarnum % 7 == 0) {
-                alert("bingo")
-                break
-            } else {
-                alert("try again")
-            }
+        // do {
+        //     tarnum = prompt("please input a number which can be devided by 3 and 7 ")
+        //     tarnum = Number(tarnum)
+        //     if (tarnum % 3 == 0 && tarnum % 7 == 0) {
+        //         alert("bingo")
+        //         break
+        //     } else {
+        //         alert("try again")
+        //     }
+        // } while (true);
+        // for (; ;) {
+        //     tarnum = prompt("please input a number which can be devided by 3 and 7 ")
+        //     tarnum = Number(tarnum)
+        //     if (tarnum % 3 == 0 && tarnum % 7 == 0) {
+        //         alert("bingo")
+        //         break
+        //     } else {
+        //         alert("try again")
+        //     }
+        // }
+        tarnum = prompt("please input a number which can be devided by 3 and 7 ")
+        // if (Number(tarnum) > 700) {
+        //     console.log('CONGRATULATIONS')
+        // } else {
+        //     console.log('0 is false')
+        // }
+        if (Number(tarnum) % 4 == 0 && Number(tarnum) % 100 != 0 || Number(tarnum) % 400 == 0) {
+            alert(`${tarnum}is years of leap`)
+        } else {
+            console.log(`${tarnum}is not years of leap`)
         }
-
     </script>
 </body>
 

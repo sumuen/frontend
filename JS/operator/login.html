@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Modal</title>
+    <style>
+        /* 为模态对话框设置基本样式 */
+        #modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: white;
+            border: 1px solid #ccc;
+        }
+
+        /* 显示模态对话框时的样式 */
+        #modal.show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 模态对话框 -->
+    <div id="modal">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username"><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password"><br><br>
+        <button onclick="submitForm()">Submit</button>
+    </div>
+
+    <button onclick="showModal()">Login</button>
+
+    <script>
+        function showModal() {
+            var modal = document.getElementById('modal');
+            modal.className = 'show';  // 显示模态对话框
+        }
+
+        function submitForm() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // 在这里处理用户名和密码
+            if (username === "user" && password === "pass") {
+                alert("Login successful!");
+            } else {
+                alert("Incorrect username or password. Please try again.");
+            }
+        }
+    </script>
+
+</body>
+
+</html>

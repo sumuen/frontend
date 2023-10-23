@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let num1 = +prompt("please input a number")
+        let num2 = +prompt("please input a number")
+        let movement = prompt("please input a movement")
+        switch (movement) {
+            case "+":
+                alert(num1 + num2);
+                break;
+            case "-":
+                alert(num1 - num2);
+                break;
+            case "*":
+            case "x":
+                alert(num1 * num2);
+                break;
+            default:
+                alert(num1 / num2);
+        }
+        console.log(2 == "2");
+        //case 语句不支持使用逻辑运算符（如 ||）来测试多个值。共享相同的代码块
+    </script>
+</body>
+
+</html>

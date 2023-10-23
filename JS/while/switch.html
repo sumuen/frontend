@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let num = 0;
+        let shouldContinue = true;
+        while (shouldContinue) {
+            let key = prompt(`1.存钱 \n 2.取钱 \n 3.查询余额 \n 4.退出`);
+            switch (key) {
+                case "1":
+                    let num1 = +prompt(`请输入存钱金额`);
+                    num += num1;
+                    alert(`存钱成功，当前余额${num}`);
+                    break;
+                case "2":
+                    let num2 = +prompt(`请输入取钱金额,当前余额${num}`);
+                    if (num2 > num) {
+                        alert(`余额不足`);
+                    } else {
+                        num -= num2;
+                        alert(`取钱成功，当前余额${num}`);
+                    }
+                    break;
+                case "3":
+                    alert(`当前余额${num}`);
+                    break;
+                case "4":
+                    alert(`退出`);
+                    shouldContinue = false;  // 设置为false以结束循环
+                    break;
+                default:
+                    alert(`无效的选项`);
+                    break;
+            }
+        }
+
+    </script>
+</body>
+
+</html>
