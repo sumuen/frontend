@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        th,
+        td {
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+        }
+
+        table {
+
+            width: 100%;
+            border-collapse: separate;
+            margin: 20px 0;
+            font-size: 16px;
+            text-align: left;
+            background-color: #f2f2f2;
+            /* Background color for the crawl between columns */
+
+        }
+
+        /* Style for table headers */
+        th {
+            background-color: #f2f2f2;
+            color: black;
+            padding: 10px;
+            border-bottom: 2px solid #ddd;
+        }
+
+        /* Style for table cells */
+        td {
+            background-color: white;
+            /* Reset the background for the cell content */
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        /* Style for table rows on hover */
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        table {
+            width: 600px;
+            text-align: center;
+        }
+
+        /* table,
+        th,
+        td {
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+        }
+
+        caption {
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        tr {
+            height: 40px;
+            cursor: pointer;
+        }
+
+        table tr:nth-child(1) {
+            background-color: #ddd;
+        }
+
+        table tr:not(:first-child):hover {
+            background-color: #eee;
+        } */
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th>name</th>
+            <th>age</th>
+            <th>score</th>
+        </tr>
+        <script>
+            let students = [
+                { name: 'ming', age: '18', score: '80' },
+                { name: 'hong', age: '19', score: '90' },
+                { name: 'jun', age: '20', score: '70' },
+                { name: 'li', age: '21', score: '60' },
+                { name: 'liu', age: '22', score: '50' },
+            ]
+            for (let i = 0; i < students.length; i++) {
+                document.write(`<tr>`)
+                document.write(`<td>${students[i].name}</td>`)
+                document.write(`<td>${students[i].age}</td>`)
+                document.write(`<td>${students[i].score}</td>`)
+                document.write(`</tr>`)
+            }
+            let obj = {
+                name: 'ming',
+                age: '18',
+                score: '80'
+            }
+            for (let key in obj) {
+                console.log(key);
+                console.log(obj[key]);
+            }
+
+            let num = [321, 213, 231, 231355, 421124214, 55215, 2111111];
+
+            while (num.length > 0) {
+                let random = Math.floor(Math.random() * num.length);
+                num.splice(random, 1);
+                console.log(num);
+            }
+
+        </script>
+    </table>
+</body>
+
+</html>

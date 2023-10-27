@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        console.log(Math.PI);
+        console.log(Math.abs(-1));
+        console.log(Math.ceil(1.1));
+        console.log(Math.floor(1.9));//向下取整
+        console.log(Math.floor(Math.random() * (10 + 1)));
+        console.log(Math.round(1.5));
+        console.log(Math.max(1, 2, 3, 4, 5, 6, 7, 8, 9));
+        console.log(parseInt(Math.random() * 10));
+        console.log(Math.pow(2, 3)); //2的3次方
+        console.log(Math.sqrt(9)); //开平方
+        let N = 8;
+        let M = 2;
+        console.log(Math.floor(Math.random() * (M + 1)) + N); //N到N+M的随机数
+        //猜数字
+        let num = parseInt(Math.random() * (100 + 1));
+        function guessnum() {
+            let guess = prompt("Enter a number");
+
+            let time = 5
+            while (guess != num && time > 0) {
+                if (time > 0) {
+                    if (guess > num) {
+                        guess = prompt(`Too big, try again,\n you only have ${time} chances`);
+
+                    } else {
+                        guess = prompt(`Too small, try again,\n you only have ${time} chances`);
+                    }
+                    time--
+                }
+            }
+            if (guess == num) {
+                alert("You got it!");
+            } else {
+                alert(`you are fucked`)
+
+            }
+        }
+        //开关变量
+        function guessnum2() {
+            suc = true
+            for (let i = 0; i < 10; i++) {
+                if (guess > num) {
+                    guess = prompt(`Too big, try again,\n you only have ${2 - i} chances`);
+
+                } else if (guess < num) {
+                    guess = prompt(`Too small, try again,\n you only have ${2 - i} chances`);
+                } else {
+                    alert(`you got it !`)
+                    suc = false
+                    break;
+                }
+
+            }
+            if (suc) alert(`you have no chances`)
+        }
+        //生成随机颜色
+        function getrandomcolor(flag) {
+            if (flag) {
+                //back  #
+                let letter = [`1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `a`, `b`, `c`, `d`, `e`, `f`]
+                let tar = []
+                let str = `#`
+                for (let i = 0; i < 6; i++) {
+                    let random = Math.floor(Math.random() * 15)
+                    tar.push(letter[random])
+                    str += letter[random]
+                }
+                return `#${tar.join("")}` //str
+                return
+            } else {
+                //back rgb
+                let r = Math.floor(Math.random() * 256)
+                let g = Math.floor(Math.random() * 256)
+                let b = Math.floor(Math.random() * 256)
+                return `rgb(${r},${g},${b})`
+            }
+        }
+        console.log(getrandomcolor(2));
+        const div = document.querySelector(`div`)
+        div.style.backgroundColor = getrandomcolor(2)
+    </script>
+</body>
+
+</html>
