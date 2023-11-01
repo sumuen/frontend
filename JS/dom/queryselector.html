@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="./hololive_EN/file_444.webp" alt="2">
+    <div class="box">
+        123
+    </div>
+    <div class="box">
+        <p>4</p>
+        <p>5</p>
+        <p>6</p>
+    </div>
+    <div id="dd"></div>
+
+
+    <p id="nav">导航</p>
+    <ul>
+        <li>21</li>
+        <li>2</li>
+        <li>2</li>
+        <li>2</li>
+        <li>2</li>
+    </ul>
+    <script>
+        const box = document.querySelectorAll('.box');
+        console.log(box);
+        const nav = document.querySelector('#nav');
+        console.log(nav);
+        const li = document.querySelector('li');
+        console.log(li);
+        const li2 = document.querySelector('ul li:first-child')
+        console.log(li2);
+        const li3 = document.querySelector('ul li:nth-child(2)')
+        console.log(li3);
+        const lis = document.querySelectorAll('li');
+        console.log(lis);
+        console.log(box.length);
+        //change all box background color auto per 1s
+        for (let i = 0; i < box.length; i++) {
+            setInterval(() => {
+                box[i].style.backgroundColor = `rgb(${Math.random() * 255},${Math.random() * 255},${Math.random() * 255})`
+            }, 500);
+        }
+        // //make all box bigger per 1s
+        // for (let i = 0; i < box.length; i++) {
+        //     setInterval(() => {
+        //         let time = 0;
+        //         for (time; time < 1000; time++) {
+        //             let currentWidth = box[i].offsetWidth;
+        //             let currentHeight = box[i].offsetHeight;
+        //             let newWidth = currentWidth + Math.random() * (10 - time);
+        //             let newHeight = currentHeight + Math.random() * (10 - time);
+        //             box[i].style.width = `${newWidth}px`;
+        //             box[i].style.height = `${newHeight}px`;
+        //         }
+
+        //     }, 500);
+        // }
+        function adjustBoxSize(boxElement, maxTime) {
+            let time = 0;
+            const adjust = () => {
+                if (time < maxTime) {
+                    let direction = time < maxTime / 2 ? 1 : -1; // 增大在前半段，减小在后半段
+                    let currentWidth = boxElement.offsetWidth;
+                    let currentHeight = boxElement.offsetHeight;
+                    let newWidth = currentWidth + direction * Math.random() * 10;
+                    let newHeight = currentHeight + direction * Math.random() * 10;
+
+                    boxElement.style.width = `${newWidth}px`;
+                    boxElement.style.height = `${newHeight}px`;
+
+                    time++;
+                    setTimeout(adjust, 500);
+                }
+            };
+            adjust();
+        }
+        for (let i = 0; i < box.length; i++) {
+            box[i].style.border = '20px solid black'
+            adjustBoxSize(box[i], 500);
+        }
+        const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        const random = [];
+
+        let randomIndex = Math.floor(Math.random() * arr.length);
+        random.push(arr[randomIndex]);
+        arr.splice(randomIndex, 1);
+
+        randomIndex = Math.floor(Math.random() * arr.length);
+        random.push(arr[randomIndex]);
+        arr.splice(randomIndex, 1);
+
+        for (let i = 0; i < box.length && i < random.length; i++) {
+            box[i].innerHTML = `${random[i]}`;
+        }
+
+        //change image target
+        const img = document.querySelector('img');
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        setInterval(() => {
+            let random = getRandom(444, 549);
+            img.src = `./hololive_EN/file_${random}.webp`
+            img.alt = `hololive_EN_${random}`
+        }, 1000);
+
+
+    </script>
+</body>
+
+</html>
