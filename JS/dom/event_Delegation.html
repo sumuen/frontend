@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=2, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul class="father">
+        <li>item1</li>
+        <li>item2</li>
+        <li>item3</li>
+        <li>item4</li>
+        <li>item5</li>
+        <P>2</P>
+    </ul>
+    <script>
+        const ul = document.querySelector('.father')
+        console.log(ul);
+        ul.addEventListener('click', function (e) {
+            console.log(e.target);
+            if (e.target.tagName === 'LI') {
+                e.target.style.color = 'red'
+            }
+
+            //this.style.color = 'red'
+        })
+    </script>
+</body>
+
+</html>

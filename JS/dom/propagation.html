@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #a {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+
+        #b {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+
+        #c {
+            width: 50px;
+            height: 50px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="a">2
+        <div id="b">
+            <div id="c"></div>
+        </div>
+    </div>
+    <script>
+        const a = document.querySelector('#a');
+        const b = document.querySelector('#b');
+        const c = document.querySelector('#c');
+        a.addEventListener('click', () => {
+            console.log('a');
+        });
+        b.addEventListener('click', (e) => {
+            console.log('b');
+            e.stopPropagation();
+
+        });
+        c.addEventListener('click', (e) => {
+            console.log('c');
+            e.stopPropagation();
+        });
+    </script>
+</body>
+
+</html>
