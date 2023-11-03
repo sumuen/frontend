@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #formbox {
+            width: 200px;
+            height: 100px;
+            margin: auto;
+        }
+
+        #formA {
+
+            background-color: #f0f0f0;
+            /* 设置背景颜色 */
+            padding: 20px;
+            /* 设置内边距 */
+            border-radius: 5px;
+            /* 设置边框圆角 */
+        }
+
+        #formA input[type="text"] {
+            width: 100%;
+            /* 设置输入框宽度 */
+            padding: 5px;
+            /* 设置输入框内边距 */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="formbox">
+        <form action="/submit_form" method="post" id="formA">
+            <label for="fname">First name:</label><br>
+            <input type="text" id="fname" name="fname"><br>
+            <label for="lname">Last name:</label><br>
+            <input type="text" id="lname" name="lname"><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <script>
+        const form = document.querySelector('#formA')
+        form.addEventListener('submit', function (e) {
+            const fname = document.querySelector('#fname').value
+            const lname = document.querySelector('#lname').value
+            if (!fname || !lname) {
+                e.preventDefault()
+                let alertxt = ''
+                if (!fname) {
+                    alertxt += 'First name is required. '
+                }
+                if (!lname) {
+                    alertxt += 'Last name is required'
+                }
+                alert(alertxt)
+            }
+        })
+    </script>
+</body>
+
+</html>

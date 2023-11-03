@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            padding-top: 100px;
+            height: 3000px;
+        }
+
+        div {
+            overflow: scroll;
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio quibusdam voluptatibus nulla nemo. Assumenda
+        expedita quidem voluptatum quibusdam aliquam dignissimos sit odio, aperiam voluptates reiciendis nobis, officia,
+        vel sequi accusantium!
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo molestiae omnis officiis totam, adipisci quod
+        commodi impedit praesentium consequatur cupiditate vitae similique dolor neque excepturi. Tempore, omnis fugit.
+        Ratione, delectus!
+    </div>
+    <script>
+        const div = document.querySelector('div')
+        window.addEventListener('scroll', function () {
+            console.log(window.scrollY);
+            if (window.scrollY > 100) {
+                div.style.position = 'fixed'
+                div.style.top = '0'
+            } else {
+                div.style.position = 'static'
+            }
+        })
+    </script>
+</body>
+
+</html>
