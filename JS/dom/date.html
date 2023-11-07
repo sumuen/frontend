@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const date = new Date()
+        console.log(date);
+        console.log(date.getDay());
+        console.log(date.getTime());
+        //sleep 3s
+        const start = +new Date()
+        // while (Date.now() - start < 3000) { }
+        console.log(Date.now());
+        function updateCountdown() {  //weekend count down
+            const now = new Date()
+            //get weekend
+            const weekend = new Date(now.getFullYear(), now.getMonth(), now.getDate() + (6 - now.getDay()))
+            console.log(weekend);
+            const d = parseInt((weekend - now) / 1000 / 60 / 60 / 24)
+            const h = parseInt((weekend - now) / 1000 / 60 / 60 % 24)
+            const m = parseInt((weekend - now) / 1000 / 60 % 60)
+            const s = parseInt((weekend - now) / 1000 % 60)
+            console.log(d);
+            document.body.innerHTML = `<h1>距离周末还有${d}天${h}小时${m}分钟${s}秒<h1>`
+        }
+        setInterval(updateCountdown, 1000)
+    </script>
+</body>
+
+</html>
