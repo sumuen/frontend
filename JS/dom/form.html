@@ -73,13 +73,6 @@
         /* input[type="button"]:last-of-type {
             background-color: #d9534f;
             /* 为最后一个按钮（删除按钮）设置不同的背景颜色 */
-        }
-
-        */ input[type="button"]:hover {
-            opacity: 0.9;
-            /* 当鼠标悬停时改变按钮透明度 */
-        }
-
         table {
             margin: 0 auto;
             width: 800px;
@@ -102,6 +95,17 @@
 
         #space {
             height: 50px;
+        }
+
+        .delete-button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: #5cb85c;
+            color: white;
+            cursor: pointer;
+            border-radius: 3px;
+            margin: 0 auto;
         }
     </style>
 </head>
@@ -137,6 +141,8 @@
             // 获取输入框元素
             const nameInput = document.getElementById('name');
             const emailInput = document.getElementById('email');
+            const deleteBtn = document.createElement('button');
+            deleteBtn.className = 'delete-button';
             // 获取输入框的值
             let name = nameInput.value;
             let email = emailInput.value;
@@ -144,7 +150,10 @@
             const row = document.createElement('tr');
             const nameCell = document.createElement('td');
             const emailCell = document.createElement('td');
-            const deleteBtn = document.createElement('button');
+
+            deleteBtn.onclick = function () {
+                tbody.removeChild(row);
+            }
             nameCell.textContent = name;
             emailCell.textContent = email;
             deleteBtn.textContent = '删除';
