@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple HTML Form Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            /* 设置整个页面的字体 */
+            background-color: #f8f8f8;
+            /* 设置页面背景颜色 */
+            padding: 20px;
+            /* 在页面主体的所有内容周围添加填充 */
+        }
+
+        form {
+            background-color: white;
+            /* 设置表单背景颜色 */
+            padding: 20px;
+            /* 在表单内容周围添加填充 */
+            border-radius: 5px;
+            /* 给表单边缘添加圆角 */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            /* 在表单周围添加阴影 */
+            max-width: 300px;
+            /* 设置表单的最大宽度 */
+            margin: auto;
+            /* 设置表单居中显示 */
+        }
+
+        label {
+            display: block;
+            /* 使每个标签都显示为块元素 */
+            margin-bottom: 8px;
+            /* 在标签和输入框之间添加间距 */
+        }
+
+        input[type="text"],
+        input[type="email"] {
+            width: calc(100% - 22px);
+            /* 输入框宽度设置为100%，减去边框和填充的宽度 */
+            padding: 10px;
+            /* 在输入框内部添加填充 */
+            margin-bottom: 20px;
+            /* 在输入框下方添加间距 */
+            border: 1px solid #ddd;
+            /* 设置输入框边框 */
+            border-radius: 3px;
+            /* 设置输入框边缘圆角 */
+        }
+
+        input[type="button"] {
+            width: 100%;
+            /* 设置按钮宽度填满容器 */
+            padding: 10px;
+            /* 在按钮内部添加填充 */
+            border: none;
+            /* 移除按钮边框 */
+            background-color: #5cb85c;
+            /* 设置按钮背景颜色 */
+            color: white;
+            /* 设置按钮文字颜色 */
+            cursor: pointer;
+            /* 设置鼠标悬停时的指针样式 */
+            border-radius: 3px;
+            /* 设置按钮边缘圆角 */
+            margin-bottom: 10px;
+            /* 设置按钮之间的间距 */
+        }
+
+        /* input[type="button"]:last-of-type {
+            background-color: #d9534f;
+            /* 为最后一个按钮（删除按钮）设置不同的背景颜色 */
+        }
+
+        */ input[type="button"]:hover {
+            opacity: 0.9;
+            /* 当鼠标悬停时改变按钮透明度 */
+        }
+
+        table {
+            margin: 0 auto;
+            width: 800px;
+            border-collapse: collapse;
+            color: #000000;
+        }
+
+        th {
+            padding: 10px;
+            background: #5cb85c;
+
+            font-size: 20px;
+            font-weight: 400;
+        }
+
+        td,
+        th {
+            border: 1px solid #5cb85c;
+        }
+
+        #space {
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="myForm">
+        <label for="name">姓名:</label>
+        <input type="text" id="name" name="name"><br><br>
+        <label for="email">电子邮件:</label>
+        <input type="email" id="email" name="email"><br><br>
+        <input type="button" value="Login" onclick="displayData()">
+    </form>
+    <div id="space">
+
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>电子邮件</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <script>
+        function displayData() {
+            //你的代码中，name 和 email 变量只是存储了输入框的值，而不是输入框元素本身。当你设置 name = '' 和 email = '' 时，你只是改变了这两个变量的值，而不是输入框的内容。
+            //你需要获取输入框元素本身，然后设置它们的 value 属性为 ''。
+            // 获取输入框元素
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            // 获取输入框的值
+            let name = nameInput.value;
+            let email = emailInput.value;
+            const tbody = document.querySelector('tbody');
+            const row = document.createElement('tr');
+            const nameCell = document.createElement('td');
+            const emailCell = document.createElement('td');
+            const deleteBtn = document.createElement('button');
+            nameCell.textContent = name;
+            emailCell.textContent = email;
+            deleteBtn.textContent = '删除';
+            deleteBtn.onclick = function () {
+                tbody.removeChild(row);
+            }
+            // 将列添加到行中
+            row.appendChild(nameCell);
+            row.appendChild(emailCell);
+            row.appendChild(deleteBtn);
+
+            tbody.appendChild(row);
+            // 清空输入框的内容
+            // 清空输入框的内容
+            nameInput.value = '';
+            emailInput.value = '';
+        }
+
+    </script>
+</body>
+
+</html>
