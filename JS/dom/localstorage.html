@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form id="myForm">
+        <label for="name">name</label>
+        <input type="text" id="name" name="name"><br><br>
+        <label for="age">age</label>
+        <input type="text" id="age" name="age"><br><br>
+        <input type="submit" value="Login" onclick="setdb()">
+    </form>
+    <script>
+        function setdb() {
+            const name = document.getElementById('name').value
+            const age = document.getElementById('age').value
+            let data = {
+                name,
+                age
+            }
+            localStorage.setItem('data', JSON.stringify(data))
+        }
+        console.log(localStorage.getItem('data'));
+    </script>
+</body>
+
+</html>
