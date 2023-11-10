@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            font-size: 20px;
+            /* 调整字体大小 */
+            padding: 10px 20px;
+            /* 调整内边距 */
+            width: 100px;
+            /* 设置宽度 */
+            height: 50px;
+            /* 设置高度 */
+        }
+    </style>
+</head>
+
+<body>
+    <button>forward</button>
+    <button>back</button>
+    <script>
+        // const btns = document.querySelectorAll('button')
+        // btns[0].addEventListener('click', function () {
+        //     history.forward()
+        // })
+        // btns[1].addEventListener('click', function () {
+        //     history.back()
+
+        // })
+        const forwarBtn = document.querySelector('button:first-child')
+        const backBtn = forwarBtn.nextElementSibling
+        forwarBtn.addEventListener('click', function () {
+            history.forward()
+        })
+        backBtn.addEventListener('click', function () {
+            history.back()
+        })
+
+    </script>
+</body>
+
+</html>
