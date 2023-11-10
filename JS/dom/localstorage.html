@@ -5,6 +5,110 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            /* 设置整个页面的字体 */
+            background-color: #f8f8f8;
+            /* 设置页面背景颜色 */
+            padding: 20px;
+            /* 在页面主体的所有内容周围添加填充 */
+        }
+
+        form {
+            background-color: white;
+            /* 设置表单背景颜色 */
+            padding: 20px;
+            /* 在表单内容周围添加填充 */
+            border-radius: 5px;
+            /* 给表单边缘添加圆角 */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            /* 在表单周围添加阴影 */
+            max-width: 300px;
+            /* 设置表单的最大宽度 */
+            margin: auto;
+            /* 设置表单居中显示 */
+        }
+
+        label {
+            display: block;
+            /* 使每个标签都显示为块元素 */
+            margin-bottom: 8px;
+            /* 在标签和输入框之间添加间距 */
+        }
+
+        input[type="text"],
+        input[type="email"] {
+            width: calc(100% - 22px);
+            /* 输入框宽度设置为100%，减去边框和填充的宽度 */
+            padding: 10px;
+            /* 在输入框内部添加填充 */
+            margin-bottom: 20px;
+            /* 在输入框下方添加间距 */
+            border: 1px solid #ddd;
+            /* 设置输入框边框 */
+            border-radius: 3px;
+            /* 设置输入框边缘圆角 */
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            /* 设置按钮宽度填满容器 */
+            padding: 10px;
+            /* 在按钮内部添加填充 */
+            border: none;
+            /* 移除按钮边框 */
+            background-color: #5cb85c;
+            /* 设置按钮背景颜色 */
+            color: white;
+            /* 设置按钮文字颜色 */
+            cursor: pointer;
+            /* 设置鼠标悬停时的指针样式 */
+            border-radius: 3px;
+            /* 设置按钮边缘圆角 */
+            margin-bottom: 10px;
+            /* 设置按钮之间的间距 */
+        }
+
+        /* input[type="button"]:last-of-type {
+            background-color: #d9534f;
+            /* 为最后一个按钮（删除按钮）设置不同的背景颜色 */
+        table {
+            margin: 0 auto;
+            width: 800px;
+            border-collapse: collapse;
+            color: #000000;
+        }
+
+        th {
+            padding: 10px;
+            background: #5cb85c;
+
+            font-size: 20px;
+            font-weight: 400;
+        }
+
+        td,
+        th {
+            border: 1px solid #5cb85c;
+        }
+
+        #space {
+            height: 50px;
+        }
+
+        .delete-button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: #5cb85c;
+            color: white;
+            cursor: pointer;
+            border-radius: 3px;
+            margin: 0 auto;
+        }
+    </style>
+    </style>
 </head>
 
 <body>
@@ -15,17 +119,84 @@
         <input type="text" id="age" name="age"><br><br>
         <input type="submit" value="Login" onclick="setdb()">
     </form>
+    <div id="space">
+
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>电子邮件</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
     <script>
         function setdb() {
-            const name = document.getElementById('name').value
-            const age = document.getElementById('age').value
-            let data = {
+            const nameInput = document.getElementById('name');
+            const ageInput = document.getElementById('age');
+            let name = nameInput.value
+            let age = ageInput.value
+            //从localStorage中获取数据
+            let data = JSON.parse(localStorage.getItem('data'))
+            if (!data) {
+                data = [];
+            }
+            //将数据添加到数组中
+            let value = {
                 name,
                 age
             }
+            data.push(value)
+            console.log(value);//
+            //将数据存储到localStorage中
             localStorage.setItem('data', JSON.stringify(data))
+
+            // 清空输入框的内容
+
+            nameInput.value = '';
+            ageInput.value = '';
         }
-        console.log(localStorage.getItem('data'));
+        //console.log(JSON.parse(localStorage.getItem('data')));
+        ! function () {
+            //从localStorage中获取数据
+            const data = JSON.parse(localStorage.getItem('data'))
+            if (!data) {
+                return;
+            }
+            const tbody = document.querySelector('tbody');
+            //遍历数据，将数据添加到表格中
+            data.forEach((item, index) => {
+                const row = document.createElement('tr');
+                const nameCell = document.createElement('td');
+                const emailCell = document.createElement('td');
+                const deleteBtn = document.createElement('button');
+                deleteBtn.className = 'delete-button';
+
+                nameCell.textContent = item.name;
+                emailCell.textContent = item.age;
+                deleteBtn.textContent = '删除';
+                deleteBtn.onclick = function () {
+                    tbody.removeChild(row);
+                    //从localStorage中找到对应的数据，删除
+                    const data = JSON.parse(localStorage.getItem('data'))
+                    data.splice(index, 1)
+                    //将删除后的数据重新存储到localStorage中
+                    localStorage.setItem('data', JSON.stringify(data))
+
+                }
+                // 将列添加到行中
+                row.appendChild(nameCell);
+                row.appendChild(emailCell);
+                row.appendChild(deleteBtn);
+                tbody.appendChild(row);
+            })
+        }();
+        console.log(JSON.parse(localStorage.getItem('data')));
+
     </script>
 </body>
 
