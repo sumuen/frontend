@@ -136,6 +136,7 @@
     </table>
     <script>
         function setdb() {
+            const form = document.getElementById('myForm'); // 假设你的表单的id是'myForm'
             const nameInput = document.getElementById('name');
             const ageInput = document.getElementById('age');
             let name = nameInput.value
@@ -154,11 +155,11 @@
             console.log(value);//
             //将数据存储到localStorage中
             localStorage.setItem('data', JSON.stringify(data))
-
-            // 清空输入框的内容
-
-            nameInput.value = '';
-            ageInput.value = '';
+            // // 清空输入框的内容
+            // nameInput.value = '';
+            // ageInput.value = '';
+            // 使用 reset 方法重置表单
+            form.reset();
         }
         //console.log(JSON.parse(localStorage.getItem('data')));
         ! function () {
