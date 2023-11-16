@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        console.log(arr);
+        console.log(Math.max(...arr));
+        let arr1 = [...arr, 11, 12, 13, 14, 15];
+        console.log(arr1);
+        function sum() {
+            let sum = 0;
+            for (let i = 0; i < arguments.length; i++) {
+                sum += arguments[i];
+            }
+            return sum;
+        }
+        console.log(sum(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+        function sum1(...arr) {
+            let sum = 0;
+            for (let i = 0; i < arr.length; i++) {
+                sum += arr[i];
+            }
+            return sum;
+
+        }
+        console.log(sum1(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+    </script>
+</body>
+
+</html>

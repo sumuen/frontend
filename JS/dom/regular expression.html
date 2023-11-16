@@ -8,11 +8,46 @@
 </head>
 
 <body>
+    <input type="text" name="" id="">
+    <span></span>
     <script>
+        //g means global, i means ignore case
         const reg = /hello/gi;
         const str = 'hello world';
         const result = reg.test(str);
         console.log(result);
+        //Match the character set,only one character
+        const reg1 = /[a-z]/gi;
+        const str1 = 'hello world';
+        const result1 = reg1.test(str1);
+        console.log(result1);
+        const reg2 = /^[abc]$/
+        const str2 = 'a';
+        const result2 = reg2.test(str2);
+        console.log(result2);
+        const reg3 = /^[a-z]$/gi;
+        const str3 = 'a';
+        const result3 = reg3.test(str3);
+        console.log(result3);
+        const reg4 = /^[a-z0-9]$/gi;
+        console.log(reg4.test('a'));
+        console.log(reg4.test('1'));
+        console.log(reg4.test('A'));
+        const reg5 = /^[a-z0-9A-Z_-]{5,10}$/;
+        const input = document.querySelector('input');
+        const span = input.nextElementSibling;
+        input.addEventListener('input', function () {
+            if (reg5.test(this.value)) {
+                span.innerHTML = 'ok';
+            } else {
+                span.innerHTML = 'not ok';
+            }
+        })
+        //replace
+        const reg6 = /hello/gi;
+        const str6 = 'hello world';
+        const result6 = str6.replace(reg6, 'fuck you');
+        console.log(result6);
     </script>
 </body>
 
