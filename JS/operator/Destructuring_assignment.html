@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const arr = [1, 2, 3, 4, 5];
+        const [a, b, c, d, e] = arr;
+        console.log(a, b, c, d, e);
+        //exchange value
+        let x = 1;
+        let y = 2;
+        [x, y] = [y, x];
+        console.log(x, y);
+        // //object
+        // const obj = {
+        //     name: 'tom',
+        //     age: 18
+        // }
+        // const {
+        //     name,
+        //     age
+        // } = obj;
+        //Multilevel object
+        const obj1 = {
+            name: 'tom',
+            age: 18,
+            address: {
+                province: 'beijing',
+                city: 'beijing'
+            }
+        }
+        const {
+            name,
+            age,
+            address: {
+                province,
+                city
+            }
+        } = obj1;
+        console.log(name, age);
+        //function
+        function fn() {
+            return [1, 2];
+        }
+        const [f, g] = fn();
+        console.log(f, g);
+        //default value
+        const [h, i, j = 3] = [1, 2];
+        console.log(h, i, j);
+        //rest
+        const [k, ...l] = [1, 2, 3, 4, 5];
+        console.log(k, l);
+        //nested
+        const [m, [n, o]] = [1, [2, 3]];
+        console.log(m, n, o);
+
+
+    </script>
+</body>
+
+</html>
