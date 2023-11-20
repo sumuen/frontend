@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr = [1, 2, 3, 4, 5];
+        let newArr = [];
+
+        //map 
+        let mapArr = arr.map(num => num === 2 ? 3 : num);
+
+        //filter
+        let filterArr = arr.filter(num => num > 2);
+
+        //reduce
+        let reduceArr = arr.reduce((sum, num) => sum + num);
+
+        //reduce find max
+        let max = arr.reduce((max, num) => Math.max(max, num));
+
+        //every
+        let every = arr.every(num => num > 2);
+
+        //some
+        let some = arr.some(num => num > 2);
+
+        //fill
+        let fill = [...arr].fill(0, 1, 3); // 使用扩展运算符创建 arr 的副本，以避免修改原始数组
+
+        //find
+        let find = arr.find(num => num > 2);
+
+        //sort
+        let sort = [...arr].sort((a, b) => a - b);
+
+        //reverse
+        let reverse = [...arr].reverse();
+
+        //findIndex
+        let findIndex = arr.findIndex(num => num > 2);
+
+        const spec = {
+            size: {
+                width: 100,
+                height: 200
+            },
+            name: "test",
+            items: ["Cake", "Donut"],
+        }
+        // get spec values
+        let { size: { width, height }, name, items: [item1, item2] } = spec;
+        document.write(`${width}*${height} ${name} ${item1}/${item2}<br>`);
+
+
+        let results = {
+            mapArr: mapArr,
+            filterArr: filterArr,
+            reduceArr: reduceArr,
+            max: max,
+            every: every,
+            some: some,
+            fill: fill,
+            find: find,
+            sort: sort,
+            reverse: reverse,
+            findIndex: findIndex
+        };
+
+        for (let e in results) {
+            document.write(e + ": " + results[e] + "<br>");
+        }
+
+    </script>
+</body>
+
+</html>

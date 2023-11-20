@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let str = "hello world";
+        let str2 = "hello world";
+        // charAt
+        let charAt = str.charAt(4);
+        //legnth
+        let length = str.length;
+        //concat
+        let concat = str.concat(" ", str2);
+        //indexOf
+        let indexOf = str.indexOf("o");
+        //lastIndexOf
+        let lastIndexOf = str.lastIndexOf("o");
+        //match
+        let match = str.match(/o/g);
+        //replace
+        let replace = str.replace(/o/g, "a");
+        //search
+        let search = str.search(/o/g);
+        //slice
+        let slice = str.slice(1, 3);
+        //split
+        let split = str.split(" ");
+        //substr
+        let substr = str.substr(1, 3);
+        //substring
+        let substring = str.substring(1, 3);
+        //toLowerCase
+        let toLowerCase = str.toLowerCase();
+        //toUpperCase
+        let toUpperCase = str.toUpperCase();
+        //startWith
+        let startWith = str.startsWith("h");
+        let output = {
+            charAt: charAt,
+            length: length,
+            concat: concat,
+            indexOf: indexOf,
+            lastIndexOf: lastIndexOf,
+            match: match,
+            replace: replace,
+            search: search,
+            slice: slice,
+            split: split,
+            substr: substr,
+            substring: substring,
+            toLowerCase: toLowerCase,
+            toUpperCase: toUpperCase,
+            startWith: startWith, 2
+        }
+        for (e in output) {
+            document.write(`${e}: ${output[e]}<br>`);
+        }
+    </script>
+</body>
+
+</html>
