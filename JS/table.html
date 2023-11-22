@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        td{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        const table = document.createElement('table');
+        const tbody = document.createElement('tbody');
+        tbody.insertRow(0);
+        tbody.rows[0].insertCell(0);
+        tbody.rows[0].cells[0].innerText = 'Cell 1';
+        tbody.rows[0].insertCell(1);
+
+        tbody.rows[0].cells[1].innerText = 'Cell 2';
+        table.appendChild(tbody);
+        document.body.appendChild(table);
+
+    </script>
+</body>
+</html>
