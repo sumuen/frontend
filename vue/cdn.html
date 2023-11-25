@@ -1,29 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <div id="app">
-        {{ message }}
-        {{ message.split('').reverse().join('') }}
-        {{age>18?'成年':'未成年'}}
+        <h1>{{ message }}
+            {{ message.split('').reverse().join('') }}
+            {{age}}
+            {{age>18?'成年':'未成年'}}</h1>
+        <button @click="reverseMessage">Reverse Message</button>
+        <img :src="imgUrl" v-bind:title='title' alt="" @click="changePhoto()">
+        <img :src="imglist[index]" alt="" @click="changePhoto2()">
+        <ul>
+            <li v-for="(item,index) in imglist">
+                {{index}}:{{item}}
+                <button @click="del(index)">del</button>
+            </li>
+        </ul>
     </div>
 
-<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-<script>
-    const { createApp } = Vue
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const { createApp } = Vue
 
-    createApp({
-        data() {
-            return {
-                message: 'Hello Vue!',
-                age : 20
+        const app = createApp({
+            data() {
+                return {
+                    message: 'Hello Vue!',
+                    age: 20,
+                    imgUrl: './img/file_299.tgs.gif',
+                    title: 'Vue Logo',
+                    imglist: [
+                        './img/file_299.tgs.gif',
+                        './img/file_300.tgs.gif',
+                        './img/file_301.tgs.gif',
+                        './img/file_302.tgs.gif',
+                        './img/file_303.tgs.gif',
+                        './img/file_304.tgs.gif',
+                        './img/file_305.tgs.gif',
+                        './img/file_306.tgs.gif',
+                        './img/file_307.tgs.gif',
+                        './img/file_308.tgs.gif',
+                        './img/file_309.tgs.gif',
+                        './img/file_310.tgs.gif',
+                        './img/file_311.tgs.gif',
+                        './img/file_312.tgs.gif',
+                        './img/file_313.tgs.gif',
+                        './img/file_314.tgs.gif',
+                        './img/file_315.tgs.gif',
+                        './img/file_316.tgs.gif',
+                        './img/file_317.tgs.gif',
+                        './img/file_318.tgs.gif',
+                        './img/file_319.tgs.gif',
+                        './img/file_320.tgs.gif',
+                        './img/file_321.tgs.gif',
+                        './img/file_322.tgs.gif',
+                        './img/file_323.tgs.gif',
+                    ],
+                    currentIndex: 0,
+                    index: 0,
+                }
+            },
+            methods: {
+                reverseMessage() {
+                    this.message = this.message.split('').reverse().join('')
+                    this.age = Math.random()>0.5?this.age+1:this.age-1
+                                },
+                changePhoto() {
+                    this.currentIndex = (this.currentIndex + 1) % this.imglist.length;
+                    this.imgUrl = this.imglist[this.currentIndex];
+                },
+                changePhoto2() {
+                    this.index = (this.index + 1) % this.imglist.length;
+                },
+                del(index) {
+                    this.imglist.splice(index, 1)
+                }
             }
-        }
-    }).mount('#app')
-</script>
+        }).mount('#app')
+    </script>
 </body>
+
 </html>
