@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        .father {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+
+        .son {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+    </style>
+    <div id="app">
+        <input v-model.trim="message">
+        <input v-model.number="age">
+        <p>Message is: {{ message }}</p>
+        <button @click="reverseMessage">Reverse Message</button>
+        <!-- v-model.lazy -->
+        <input v-model.lazy="message">
+        <!-- @keyup enter -->
+        <input v-model="message" @keyup.enter="reverseMessage">
+        <!-- stop -->
+        <div @click.stop="clear()" class="father">
+            <div @click.stop="reverseMessage()" class="son"></div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        //v-model
+        const { createApp } = Vue
+        const app = createApp({
+            data() {
+                return {
+                    message: 'hellovue',
+                    age: 20
+                }
+            },
+            methods: {
+                reverseMessage() {
+                    this.message = this.message.split('').reverse().join('')
+                    alert('son')
+
+                },
+                async clear() {
+                    await this.sleep(1000)
+                    this.message = '',
+                        alert('father')
+
+                },
+                sleep(time) {
+                    return new Promise((resolve) => setTimeout(resolve, time));
+                }
+
+
+            }
+        }).mount('#app')
+    </script>
+</body>
+
+</html>
